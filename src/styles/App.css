@@ -9,23 +9,18 @@
   flex-direction: column;
   min-height: 100vh;
   border: 1px solid red;
-  gap : 1em;
+  gap: 1em;
 }
-.container{
+.container {
   border: 1px solid brown;
   display: grid;
   grid-template-columns: 1fr 1.75fr;
   gap: 1em;
-  
 }
-.header{
-  border: 1px solid violet;
-  text-align: center;
-  padding: 1.2em;
-}
-.detail{
+
+.detail {
   border: 1px solid forestgreen;
 }
-.main{
+.main {
   border: 1px solid blue;
 }

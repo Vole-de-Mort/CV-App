@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import './styles/App.css'
-import DetailSection from './DetailSection'
-import MainSection from './MainSection'
-import Header from './Header'
+import { useState } from 'react';
+import './styles/App.css';
+import DetailSection from './DetailSection';
+import MainSection from './MainSection';
+import Header from './Header';
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -15,7 +15,7 @@ function App() {
         <MainSection />
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

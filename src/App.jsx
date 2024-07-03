@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './styles/App.css';
 import DetailSection from './DetailSection';
 import MainSection from './MainSection';
@@ -10,7 +9,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="container">
+      <div className='container'>
         <DetailSection />
         <MainSection />
       </div>

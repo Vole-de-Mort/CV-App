@@ -11,16 +11,21 @@
   border: 1px solid red;
   gap: 1em;
 }
+.body{
+  background-color: #eff1f3;
+}
 .container {
   border: 1px solid brown;
   display: grid;
   grid-template-columns: 1fr 1.75fr;
   gap: 1em;
 }
-
 .detail {
-  border: 1px solid forestgreen;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
+
 .main {
   border: 1px solid blue;
 }

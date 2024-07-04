@@ -1,6 +1,5 @@
 import GenreBox from './components/GenreBox';
 
-import './styles/DetailSection.css';
 import im1 from './assets/info.png';
 import im2 from './assets/education.png';
 import im3 from './assets/experiance.png';
@@ -8,6 +7,7 @@ import im3 from './assets/experiance.png';
 import PersonalDetailsForm from './components/PersonalDetailsForm';
 import EducationForm from './components/EducationForm';
 import ExperianceForm from './components/ExperianceForm';
+
 /* 
 cette section doit genere ces composont : 
   information

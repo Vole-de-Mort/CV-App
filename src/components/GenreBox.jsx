@@ -8,29 +8,70 @@ import im1 from '../assets/arrow.png';
 
 export default function GenreBox(props) {
   const [showForm, setShowForm] = useState(false);
+  const [showBlock, setShowBlock] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+
+  const toggleHidden = () => {
+    setIsHidden(!isHidden);
+  };
 
   const handelArrowClick = () => {
-    // lena lzem el formulaire marra tetna7a ou marra tatla3
     setShowForm(!showForm);
   };
 
+  const handelBlockClick = () => {
+    const newShowBlock = !showBlock;
+    setShowBlock(newShowBlock);
+
+    if (newShowBlock) {
+      setTimeout(() => setIsVisible(true), 0); // delay before making it visible again
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  const handleClick = () => {
+    handelArrowClick();
+    toggleHidden();
+  };
+  const handleCloseClick = () => {
+    toggleHidden();
+    setShowForm(false);
+  };
   let formContent = null;
   if (showForm) {
-    console.log(showForm);
-
     formContent = (
       <>
         {props.formContent}
         <div className='buttons'>
-          <button type='submit'>Submit</button>
-          <button type='button' onClick={() => setShowForm(false)}>
+          <button type='submit'>Save</button>
+          <button type='button' onClick={handleCloseClick}>
             Cancel
           </button>
         </div>
       </>
     );
-    //reder the form
   }
+
+  let blockContent = null;
+
+  if (showBlock) {
+    blockContent = (
+      <>
+        <div
+          onClick={handleClick}
+          className={`add ${isHidden ? 'hidden' : ''}`}
+        >
+          Add {props.text}
+        </div>
+        <div className='form'>{formContent}</div>
+      </>
+    );
+  }
+
+  // this page should display an add  block
+
   return (
     <div className='box' key={props.index}>
       <div className='subBox'>
@@ -42,12 +83,15 @@ export default function GenreBox(props) {
           <img
             src={im1}
             alt='toggelling arrow'
-            className='arrow'
-            onClick={handelArrowClick}
+            className={`arrow ${showBlock ? 'rotate' : ''}`}
+            onClick={handelBlockClick}
           />
         </div>
       </div>
-      <div className='form'>{formContent}</div>
+
+      <div className={`blockContent ${isVisible ? 'visible' : ''}`}>
+        {blockContent}
+      </div>
     </div>
   );
 }

@@ -1,26 +1,12 @@
 import GenreBox from './components/GenreBox';
-
 import im1 from './assets/info.png';
 import im2 from './assets/education.png';
 import im3 from './assets/experiance.png';
-
 import PersonalDetailsForm from './components/PersonalDetailsForm';
 import EducationForm from './components/EducationForm';
 import ExperianceForm from './components/ExperianceForm';
 
-/* 
-cette section doit genere ces composont : 
-  information
-  education
-  experiance
-  competance
-  langage
-  Centre d'interée
-*/
-
-//lazem component pour genere un box avec un text et un logo specifie
-
-export default function DetailSection() {
+export default function DetailSection({ setSharedData }) {
   return (
     <div className='detail'>
       <GenreBox
@@ -28,7 +14,8 @@ export default function DetailSection() {
         srcIcone={im1}
         info='Personal details'
         index='1'
-        formContent={<PersonalDetailsForm />} // 3tenah el form 7athra
+        formContent={<PersonalDetailsForm />}
+        setSharedData={setSharedData}
       />
       <GenreBox
         text='Education'
@@ -36,6 +23,7 @@ export default function DetailSection() {
         info='education'
         index='2'
         formContent={<EducationForm />}
+        setSharedData={setSharedData}
       />
       <GenreBox
         text='Experiance'
@@ -43,6 +31,7 @@ export default function DetailSection() {
         info='experiance'
         index='3'
         formContent={<ExperianceForm />}
+        setSharedData={setSharedData}
       />
     </div>
   );

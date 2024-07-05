@@ -1,17 +1,19 @@
+import { useState } from 'react';
+
 import './styles/App.css';
 import DetailSection from './DetailSection';
 import MainSection from './MainSection';
 import Header from './Header';
 
 function App() {
-  //const [count, setCount] = useState(0)
+  const [sharedData, setSharedData] = useState('initial data');
 
   return (
     <>
       <Header />
       <div className='container'>
-        <DetailSection />
-        <MainSection />
+        <DetailSection setSharedData={setSharedData} />
+        <MainSection sharedData={sharedData} />
       </div>
     </>
   );

@@ -1,10 +1,6 @@
-import { useState } from 'react';
-
+import React, { useState } from 'react';
 import '../styles/GenereBox.css';
 import im1 from '../assets/arrow.png';
-
-// lazem ki tenzel 3al arrow tatla3 ta7tou formulaire faha inputs
-// ou cancel and save buttons
 
 export default function GenreBox(props) {
   const [showForm, setShowForm] = useState(false);
@@ -35,21 +31,23 @@ export default function GenreBox(props) {
     handelArrowClick();
     toggleHidden();
   };
+
   const handleCloseClick = () => {
     toggleHidden();
     setShowForm(false);
   };
+
+  const handleSaveClick = (formData) => {
+    props.setSharedData(formData);
+    setShowForm(false);
+    toggleHidden();
+  };
+
   let formContent = null;
   if (showForm) {
     formContent = (
       <>
-        {props.formContent}
-        <div className='buttons'>
-          <button type='submit'>Save</button>
-          <button type='button' onClick={handleCloseClick}>
-            Cancel
-          </button>
-        </div>
+        {React.cloneElement(props.formContent, { onSave: handleSaveClick, onCancel: handleCloseClick })}
       </>
     );
   }
@@ -59,18 +57,13 @@ export default function GenreBox(props) {
   if (showBlock) {
     blockContent = (
       <>
-        <div
-          onClick={handleClick}
-          className={`add ${isHidden ? 'hidden' : ''}`}
-        >
+        <div onClick={handleClick} className={`add ${isHidden ? 'hidden' : ''}`}>
           Add {props.text}
         </div>
         <div className='form'>{formContent}</div>
       </>
     );
   }
-
-  // this page should display an add  block
 
   return (
     <div className='box' key={props.index}>

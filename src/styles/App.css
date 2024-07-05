@@ -17,7 +17,7 @@
 .container {
   border: 1px solid brown;
   display: grid;
-  grid-template-columns: 1fr 1.75fr;
+  grid-template-columns: .9fr 1.75fr;
   gap: 1em;
 }
 .detail {

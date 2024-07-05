@@ -17,7 +17,7 @@ function App() {
     }, // the education data is a list that containes the education achivment's
     educationData : [
       { // it could need an id not sure yet !
-        schooldName : 'essths',
+        schoolName : 'insat',
         degree:"Computer Science",
         startDate : '11-11-1111',
         endDate : '22-22-2222',        

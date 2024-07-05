@@ -8,17 +8,14 @@ export default function MainSection(props) {
         {props.sharedData.personalData.email} <br />
         {props.sharedData.personalData.phoneNumber}
       </div>
-      <div className='educationInfo'></div>
-      <div className='experianceInfo'></div>
-    </div>
-  );
-}
-{/*
+      <div className='educationInfo'>
         <p>edu info </p>
-        {props.sharedData.educationData[0].schoolName} 
+        {props.sharedData.educationData[0].schoolName} <br />
         {props.sharedData.educationData[0].degree} <br />
         {props.sharedData.educationData[0].startDate} <br />
-        {props.sharedData.educationData[0].endDate} 
+        {props.sharedData.educationData[0].endDate}
+      </div>
+      <div className='experianceInfo'>
         <p>experiance info </p>
         {props.sharedData.experianceData[0].companyName} <br />
         {props.sharedData.experianceData[0].position} <br />
@@ -26,4 +23,7 @@ export default function MainSection(props) {
         {props.sharedData.experianceData[0].description} <br />
         {props.sharedData.experianceData[0].start} <br />
         {props.sharedData.experianceData[0].end}
-  */} 
+      </div>
+    </div>
+  );
+}

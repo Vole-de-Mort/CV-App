@@ -1,9 +1,10 @@
 import { useState } from 'react';
-export default function ExperianceForm({ onSave, onCancel }) {
+
+export default function ExperianceForm(props) {
+  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     companyName: '',
     position: '',
-    startDate: '',
     location: '',
     description: '',
     start: '',
@@ -12,14 +13,33 @@ export default function ExperianceForm({ onSave, onCancel }) {
 
   const handleInputData = (e) => {
     const { id, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevData) => ({
+      ...prevData,
       [id]: value,
-    });
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [id]: '',
+    }));
   };
 
   const handleSave = () => {
-    onSave(formData);
+    const newErrors = {};
+    Object.keys(formData).forEach((key) => {
+      if (!formData[key]) {
+        newErrors[key] = 'This field is required';
+      }
+    });
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    props.onSave((prevSharedData) => ({
+      ...prevSharedData,
+      experianceData: [...prevSharedData.experianceData, formData],
+    }));
   };
 
   return (
@@ -33,6 +53,7 @@ export default function ExperianceForm({ onSave, onCancel }) {
           value={formData.companyName}
           onChange={handleInputData}
         />
+        {errors.companyName && <span className='error'>{errors.companyName}</span>}
       </div>
       <div className='position'>
         <label htmlFor='position'>Position Title</label>
@@ -43,6 +64,7 @@ export default function ExperianceForm({ onSave, onCancel }) {
           value={formData.position}
           onChange={handleInputData}
         />
+        {errors.position && <span className='error'>{errors.position}</span>}
       </div>
       <div className='location'>
         <label htmlFor='location'>Location</label>
@@ -53,6 +75,7 @@ export default function ExperianceForm({ onSave, onCancel }) {
           value={formData.location}
           onChange={handleInputData}
         />
+        {errors.location && <span className='error'>{errors.location}</span>}
       </div>
       <div className='description'>
         <label htmlFor='description'>Description</label>
@@ -63,6 +86,7 @@ export default function ExperianceForm({ onSave, onCancel }) {
           value={formData.description}
           onChange={handleInputData}
         />
+        {errors.description && <span className='error'>{errors.description}</span>}
       </div>
       <div className='startDate'>
         <label htmlFor='start'>Start date</label>
@@ -72,6 +96,7 @@ export default function ExperianceForm({ onSave, onCancel }) {
           value={formData.start}
           onChange={handleInputData}
         />
+        {errors.start && <span className='error'>{errors.start}</span>}
       </div>
       <div className='endDate'>
         <label htmlFor='end'>End date</label>
@@ -81,12 +106,13 @@ export default function ExperianceForm({ onSave, onCancel }) {
           value={formData.end}
           onChange={handleInputData}
         />
+        {errors.end && <span className='error'>{errors.end}</span>}
       </div>
       <div className='buttons'>
         <button type='button' onClick={handleSave}>
           Save
         </button>
-        <button type='button' onClick={onCancel}>
+        <button type='button' onClick={props.onCancel}>
           Cancel
         </button>
       </div>

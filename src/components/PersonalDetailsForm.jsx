@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import '../styles/PersonalDetailsForm.css';
 
-//export default function PersonalDetailsForm({ onSave, onCancel }) {
 export default function PersonalDetailsForm(props) {
   const [formData, setFormData] = useState(props.sharedData.personalData);
   const handleInputData = (e) => {
@@ -35,6 +34,7 @@ export default function PersonalDetailsForm(props) {
           //value={formData.name}
           onChange={handleInputData}
         />
+        {errors.name && <span className='error'>{errors.name}</span>}
       </div>
       <div className='email'>
         <label htmlFor='email'>E-mail</label>
@@ -45,6 +45,7 @@ export default function PersonalDetailsForm(props) {
           //value={formData.email}
           onChange={handleInputData}
         />
+        {errors.email && <span className='error'>{errors.email}</span>}
       </div>
       <div className='phoneNumber'>
         <label htmlFor='phoneNumber'>Phone number</label>
@@ -55,6 +56,7 @@ export default function PersonalDetailsForm(props) {
           //value={formData.phoneNumber}
           onChange={handleInputData}
         />
+        {errors.phoneNumber && <span className='error'>{errors.phoneNumber}</span>}
       </div>
       <div className='buttons'>
         <button type='button' onClick={handleSave}>

@@ -17,3 +17,4 @@ Currently, two official plugins are available:
 
 - _React_
 - _CSS_ for responsive design
+- Prettier and ESLint

@@ -1,24 +1,28 @@
 import { useState } from 'react';
 import '../styles/PersonalDetailsForm.css';
 
-export default function PersonalDetailsForm({ onSave, onCancel }) {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phoneNumber: '',
-  });
-
+//export default function PersonalDetailsForm({ onSave, onCancel }) {
+export default function PersonalDetailsForm(props) {
+  const [formData, setFormData] = useState(props.sharedData.personalData);
   const handleInputData = (e) => {
     const { id, value } = e.target;
-    setFormData({
+    console.log(id, value);
+    setFormData((prevData) => ({
+      ...prevData.personalData,
       ...formData,
       [id]: value,
-    });
+    }));
+  };
+  const handleSave = () => {
+    // Update the initialData structure in the parent component (App.js)
+    props.onSave((prevSharedData) => ({
+      ...prevSharedData,
+      personalData: formData,
+    }));
   };
 
-  const handleSave = () => {
-    onSave(formData);
-  };
+  console.log(props.sharedData);
+  console.log(formData);
 
   return (
     <>
@@ -28,7 +32,7 @@ export default function PersonalDetailsForm({ onSave, onCancel }) {
           type='text'
           placeholder='Noah Smith'
           id='name'
-          value={formData.name}
+          //value={formData.name}
           onChange={handleInputData}
         />
       </div>
@@ -38,7 +42,7 @@ export default function PersonalDetailsForm({ onSave, onCancel }) {
           type='email'
           placeholder='qwert@gmail.fr'
           id='email'
-          value={formData.email}
+          //value={formData.email}
           onChange={handleInputData}
         />
       </div>
@@ -48,7 +52,7 @@ export default function PersonalDetailsForm({ onSave, onCancel }) {
           type='text'
           placeholder='33 444 555'
           id='phoneNumber'
-          value={formData.phoneNumber}
+          //value={formData.phoneNumber}
           onChange={handleInputData}
         />
       </div>
@@ -56,7 +60,7 @@ export default function PersonalDetailsForm({ onSave, onCancel }) {
         <button type='button' onClick={handleSave}>
           Save
         </button>
-        <button type='button' onClick={onCancel}>
+        <button type='button' onClick={props.onCancel}>
           Cancel
         </button>
       </div>

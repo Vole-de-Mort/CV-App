@@ -6,7 +6,7 @@ import PersonalDetailsForm from './components/PersonalDetailsForm';
 import EducationForm from './components/EducationForm';
 import ExperianceForm from './components/ExperianceForm';
 
-export default function DetailSection({ setSharedData }) {
+export default function DetailSection( props ) {
   return (
     <div className='detail'>
       <GenreBox
@@ -14,8 +14,8 @@ export default function DetailSection({ setSharedData }) {
         srcIcone={im1}
         info='Personal details'
         index='1'
-        formContent={<PersonalDetailsForm />}
-        setSharedData={setSharedData}
+        formContent={<PersonalDetailsForm  sharedData = {props.sharedData} />}
+        setSharedData={props.setSharedData}
       />
       <GenreBox
         text='Education'
@@ -23,7 +23,7 @@ export default function DetailSection({ setSharedData }) {
         info='education'
         index='2'
         formContent={<EducationForm />}
-        setSharedData={setSharedData}
+        setSharedData={props.setSharedData}
       />
       <GenreBox
         text='Experiance'
@@ -31,7 +31,7 @@ export default function DetailSection({ setSharedData }) {
         info='experiance'
         index='3'
         formContent={<ExperianceForm />}
-        setSharedData={setSharedData}
+        setSharedData={props.setSharedData}
       />
     </div>
   );

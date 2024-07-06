@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/GenereBox.css';
 import im1 from '../assets/arrow.png';
 import im2 from '../assets/trash.png';
@@ -11,7 +11,6 @@ export default function GenreBox(props) {
   useEffect(() => {
     renderCards(); // Initial render
   }, [props.sharedData, props.info]);
-
   const toggleHidden = () => {
     setIsHidden(!isHidden);
   };
@@ -26,7 +25,6 @@ export default function GenreBox(props) {
 
   const renderCards = () => {
     const dataToShow = props.sharedData[props.info];
-    console.log(dataToShow);
     if (dataToShow && dataToShow.length > 0) {
       const newRenderCard = dataToShow.map((item) => {
         // const key = uuidv4();
@@ -54,7 +52,6 @@ export default function GenreBox(props) {
                   handleTrashClick(item.id);
                 }}
               />
-              {console.log(item.schoolName)}
             </div>
           );
         } else {
@@ -63,7 +60,6 @@ export default function GenreBox(props) {
       });
 
       setRenderCard(newRenderCard);
-      //setRenderCard(prevRenderCard => [...prevRenderCard, ...newRenderCard]);
     } else {
       setRenderCard([]); // Clear renderCard if no data
     }
@@ -75,10 +71,7 @@ export default function GenreBox(props) {
 
     if (newShowBlock) {
       setTimeout(() => setIsVisible(true), 0); // delay before making it visible again
-      //setRenderCard([]);
       renderCards();
-      console.log('rendercards on arrow click');
-      //here we need to call a function to runder data if needed
     } else {
       setIsVisible(false);
     }

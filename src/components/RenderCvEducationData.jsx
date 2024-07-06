@@ -1,18 +1,22 @@
-import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 export default function RenderCvEducationData({ education }) {
-  console.log('Education Data');
-  console.log(education);
   return (
     <>
       {education.map((ecole) => (
-        <div key={ecole.id}>
-          <div key={uuidv4()}>{ecole.schoolName}</div>
-          <div key={uuidv4()}>{ecole.degree}</div>
-          <div key={uuidv4()}>
-            {ecole.startDate} - {ecole.endDate}
+        <div key={ecole.id} className='educationCard'>
+          <div className='show-card'>
+            <div key={uuidv4()} className='bold'>
+              {ecole.schoolName}
+            </div>
+            <div key={uuidv4()}>
+              {ecole.startDate} / {ecole.endDate}
+            </div>
           </div>
-          <hr />
+          <div key={uuidv4()} className='sub-show-card'>
+            {ecole.degree}
+          </div>
+
+          <div className='line-break'></div>
         </div>
       ))}
     </>

@@ -12,7 +12,6 @@ export default function ExperianceForm(props) {
     end: '',
     id: '',
   });
-
   const handleInputData = (e) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({

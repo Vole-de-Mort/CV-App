@@ -1,6 +1,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
+
 }
 
 #root {
@@ -8,26 +9,26 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  border: 1px solid red;
   gap: 1em;
 }
-.body{
-  background-color: #eff1f3;
-}
 .container {
-  border: 1px solid brown;
+
   display: grid;
-  grid-template-columns: .9fr 1.75fr;
+  grid-template-columns: 1fr 1.8fr;
   gap: 1em;
 }
 .detail {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  padding-left: 1.5em ;
+  padding-right: .5em;
 }
 
 .main{
+
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  min-height: 100vh;
+  padding-right: 2em;
 }

@@ -7,15 +7,55 @@ import EducationForm from './components/EducationForm';
 import ExperianceForm from './components/ExperianceForm';
 
 export default function DetailSection(props) {
-
   const deleteItem = (info, id) => {
     props.setSharedData((prevData) => ({
       ...prevData,
       [info]: prevData[info].filter((item) => item.id !== id),
     }));
   };
+  const handelClearClear = () => {
+    props.setSharedData({
+      personalData: [
+        {
+          name: '',
+          email: '',
+          phoneNumber: '',
+          adresse: '',
+        },
+      ],
+      educationData: [
+        {
+          schoolName: '',
+          degree: '',
+          startDate: '',
+          endDate: '',
+          id: '',
+        },
+      ],
+      experianceData: [
+        {
+          companyName: '',
+          position: '',
+          location: '',
+          description: '',
+          start: '',
+          end: '',
+          id: '',
+        },
+      ],
+    });
+  };
   return (
     <div className='detail'>
+      <div className='btns'>
+        <input
+          type='button'
+          value='Clear example'
+          id='btn1'
+          onClick={handelClearClear}
+        />
+        <input type='button' value='Load example' id='btn2' />
+      </div>
       <GenreBox
         text='Personal details'
         srcIcone={im1}
@@ -44,7 +84,7 @@ export default function DetailSection(props) {
         setSharedData={props.setSharedData}
         deleteItem={deleteItem}
         // athi bech nab3thou bada les donner el genere box pour les affiche comme des petit box
-        sharedData={props.sharedData} 
+        sharedData={props.sharedData}
       />
     </div>
   );

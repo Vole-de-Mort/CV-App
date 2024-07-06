@@ -4,7 +4,7 @@ export default function PersonalDetailsForm(props) {
   const [formData, setFormData] = useState(props.sharedData.personalData[0]);
   const handleInputData = (e) => {
     const { id, value } = e.target;
-    console.log(id, value);
+
     setFormData((prevData) => ({
       ...prevData.personalData,
       ...formData,
@@ -12,15 +12,12 @@ export default function PersonalDetailsForm(props) {
     }));
   };
   const handleSave = () => {
-    // Update the initialData structure in the parent component (App.js)
+    // Update the initialData structure App.jsx
     props.onSave((prevSharedData) => ({
       ...prevSharedData,
-      personalData: [ formData],
+      personalData: [formData],
     }));
   };
-
-  console.log(props.sharedData);
-  console.log(formData);
 
   return (
     <>

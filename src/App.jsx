@@ -6,8 +6,6 @@ import MainSection from './MainSection';
 import Header from './Header';
 
 function App() {
-  // const [sharedData, setSharedData] = useState('initial data');
-  // prototype for the predined data as an object
   const initialData = {
     // the personal data must only contain one element
     personalData: [
@@ -20,23 +18,65 @@ function App() {
     ], // the education data is a list that containes the education achivment's
     educationData: [
       {
-        // it could need an id not sure yet !
-        schoolName: 'insat',
-        degree: 'Computer Science',
-        startDate: '11-11-1111',
-        endDate: '22-22-2222',
+        schoolName: 'Stanford University',
+        degree: 'Ph.D. in Machine Learning',
+        startDate: '11-11-2005',
+        endDate: '22-22-2008',
         id: uuidv4(),
       },
-    ], // the education data is a list that containes the education achivment's
+      {
+        schoolName: 'Harvard University',
+        degree: 'Master of Science in Artificial Intelligence',
+        startDate: '11-11-2003',
+        endDate: '22-22-2005',
+        id: uuidv4(),
+      },
+      {
+        schoolName: 'insat',
+        degree: 'Bachelor of Science in Computer Science',
+        startDate: '11-11-2000',
+        endDate: '22-22-2003',
+        id: uuidv4(),
+      },
+    ],
     experianceData: [
       {
-        // it could need an id not sure yet !
-        companyName: 'ETC',
-        position: 'CEO',
-        location: 'Kaser hlell',
-        description: 'not anything specifically',
-        start: '33-33-333',
-        end: '44-44-444',
+        companyName: 'Google',
+        position: 'Software Engineer',
+        location: 'Mountain View, CA',
+        description:
+          'Worked on the development of large-scale machine learning algorithms and improved search engine capabilities.',
+        start: '33-33-2019',
+        end: '44-44-2024',
+        id: uuidv4(),
+      },
+      {
+        companyName: 'Facebook',
+        position: 'Data Scientist',
+        location: 'Menlo Park, CA',
+        description:
+          'Analyzed user data to enhance ad targeting algorithms and improve user engagement metrics.',
+        start: '33-33-2015',
+        end: '44-44-2018',
+        id: uuidv4(),
+      },
+      {
+        companyName: 'OpenAI',
+        position: 'Senior Research Scientist',
+        location: 'San Francisco, CA',
+        description: 'Senior Research Scientist',
+        start: '33-33-2011',
+        end: '44-44-2015',
+        id: uuidv4(),
+      },
+      {
+        companyName: 'Microsoft',
+        position: 'Junior Software Developer',
+        location: 'Redmond, WA',
+        description:
+          'Assisted in the development of cloud computing services and worked on improving the performance of Microsoft Azure.',
+        start: '33-33-2009',
+        end: '44-44-2011',
         id: uuidv4(),
       },
     ],
@@ -46,11 +86,6 @@ function App() {
     <>
       <Header />
       <div className='container'>
-        {/*
-          in the thispart i should give a prdefined variable for storing data
-          even to add it or to remove or edit it
-          the main section should render it 
-        */}
         <DetailSection setSharedData={setSharedData} sharedData={sharedData} />
         <MainSection sharedData={sharedData} />
       </div>

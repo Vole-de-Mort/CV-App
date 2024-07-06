@@ -1,8 +1,10 @@
+
 import './styles/MainSection.css';
 import im1 from './assets/email.png';
 import im2 from './assets/phone.png';
 import im3 from './assets/localisation.png';
-
+import RenderCvEducationData from './components/RenderCvEducationData';
+import RenderCvExperianceData from './components/RenderCvExperianceData'
 export default function MainSection(props) {
   console.log(props);
   return (
@@ -28,26 +30,17 @@ export default function MainSection(props) {
           </div>
         </div>
       </div>
-      {/* 
-        namlou un composent pour generer les block SI'il EXSISTE 
-      */}
       <div className='educationInfo'>
-        <p>edu info </p>
-        {/*lazem map throw educationData */}
-        {props.sharedData.educationData[0].schoolName} <br />
-        {props.sharedData.educationData[0].degree} <br />
-        {props.sharedData.educationData[0].startDate} <br />
-        {props.sharedData.educationData[0].endDate}
+        {/*map throw educationData */}
+        <RenderCvEducationData 
+          education={props.sharedData.educationData} // liste
+        />
       </div>
       <div className='experianceInfo'>
-        <p>experiance info </p>
-        {/*lazem map throw experianceData */}
-        {props.sharedData.experianceData[0].companyName} <br />
-        {props.sharedData.experianceData[0].position} <br />
-        {props.sharedData.experianceData[0].location} <br />
-        {props.sharedData.experianceData[0].description} <br />
-        {props.sharedData.experianceData[0].start} <br />
-        {props.sharedData.experianceData[0].end}
+        {/* map throw experianceData */}
+        <RenderCvExperianceData 
+          experiance={props.sharedData.experianceData} // liste
+        />
       </div>
     </div>
   );

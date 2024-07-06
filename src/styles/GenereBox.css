@@ -46,6 +46,7 @@ p{
   opacity: 0;
   transition: opacity 0.3s ease; 
   padding: 1em;
+  gap: .5em;
 }
 .blockContent.visible {
   opacity: 1;
@@ -113,6 +114,26 @@ button[type='button']:hover{
   font-size: 0.8em;
   margin-top: 0.5em;
 }
+.cards{
+  border-radius: .5em;
+  display: flex;
+  flex-direction: column;
+  gap: .7em;
+  
+}
 .card{
-  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: .5em;
+  box-shadow: 2px 2px 4px #d3d3d3;
+  font-size: 1.5em;
+  padding: .5em;
+}
+.card:hover{
+  box-shadow: 4px 4px 8px #d3d3d3;
+
+}
+.trash:hover{
+  cursor: pointer;
 }

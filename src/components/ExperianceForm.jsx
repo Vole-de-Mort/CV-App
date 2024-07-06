@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function ExperianceForm(props) {
   const [errors, setErrors] = useState({});
@@ -9,6 +10,7 @@ export default function ExperianceForm(props) {
     description: '',
     start: '',
     end: '',
+    id: '',
   });
 
   const handleInputData = (e) => {
@@ -16,6 +18,7 @@ export default function ExperianceForm(props) {
     setFormData((prevData) => ({
       ...prevData,
       [id]: value,
+      id: uuidv4(),
     }));
     setErrors((prevErrors) => ({
       ...prevErrors,
@@ -53,7 +56,9 @@ export default function ExperianceForm(props) {
           value={formData.companyName}
           onChange={handleInputData}
         />
-        {errors.companyName && <span className='error'>{errors.companyName}</span>}
+        {errors.companyName && (
+          <span className='error'>{errors.companyName}</span>
+        )}
       </div>
       <div className='position'>
         <label htmlFor='position'>Position Title</label>
@@ -86,7 +91,9 @@ export default function ExperianceForm(props) {
           value={formData.description}
           onChange={handleInputData}
         />
-        {errors.description && <span className='error'>{errors.description}</span>}
+        {errors.description && (
+          <span className='error'>{errors.description}</span>
+        )}
       </div>
       <div className='startDate'>
         <label htmlFor='start'>Start date</label>

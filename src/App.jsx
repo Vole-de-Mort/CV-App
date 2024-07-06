@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { v4 as uuidv4 } from 'uuid';
 import './styles/App.css';
 import DetailSection from './DetailSection';
 import MainSection from './MainSection';
@@ -10,29 +10,35 @@ function App() {
   // prototype for the predined data as an object
   const initialData = {
     // the personal data must only contain one element
-    personalData: [{
-      name: 'Ahmed miled',
-      email: 'ml967799@gmail.com',
-      phoneNumber: '11 222 333',
-    }], // the education data is a list that containes the education achivment's
-    educationData : [
-      { // it could need an id not sure yet !
-        schoolName : 'insat',
-        degree:"Computer Science",
-        startDate : '11-11-1111',
-        endDate : '22-22-2222',        
+    personalData: [
+      {
+        name: 'Ahmed miled',
+        email: 'ml967799@gmail.com',
+        phoneNumber: '11 222 333',
       },
     ], // the education data is a list that containes the education achivment's
-    experianceData : [
-      { // it could need an id not sure yet !
-        companyName : 'ETC',
-        position : 'CEO',
-        location : 'Kaser hlell',
-        description : 'not anything specifically',
-        start : '33-33-333',
-        end : '44-44-444',
+    educationData: [
+      {
+        // it could need an id not sure yet !
+        schoolName: 'insat',
+        degree: 'Computer Science',
+        startDate: '11-11-1111',
+        endDate: '22-22-2222',
+        id: uuidv4(),
       },
-    ]
+    ], // the education data is a list that containes the education achivment's
+    experianceData: [
+      {
+        // it could need an id not sure yet !
+        companyName: 'ETC',
+        position: 'CEO',
+        location: 'Kaser hlell',
+        description: 'not anything specifically',
+        start: '33-33-333',
+        end: '44-44-444',
+        id: uuidv4(),
+      },
+    ],
   };
   const [sharedData, setSharedData] = useState(initialData);
   return (

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function EducationForm(props) {
   //const [formData, setFormData] = useState(props.sharedData.educationData);
@@ -8,6 +9,7 @@ export default function EducationForm(props) {
     degree: '',
     startDate: '',
     endDate: '',
+    id: '',
   });
   const handleInputData = (e) => {
     const { id, value } = e.target;
@@ -15,12 +17,13 @@ export default function EducationForm(props) {
       ...prevData.educationData,
       ...formData,
       [id]: value,
+      id: uuidv4(),
     }));
     setErrors((prevErrors) => ({
       ...prevErrors,
       [id]: '',
     }));
-  }
+  };
   const handleSave = () => {
     const newErrors = {};
     Object.keys(formData).forEach((key) => {
@@ -33,11 +36,10 @@ export default function EducationForm(props) {
       setErrors(newErrors);
       return;
     }
-    //props.onSave(formData);
     // Update the initialData structure in the parent component (App.js)
     props.onSave((prevSharedData) => ({
       ...prevSharedData,
-      educationData: [ ...prevSharedData.educationData, formData]
+      educationData: [...prevSharedData.educationData, formData],
     }));
   };
 
@@ -52,7 +54,9 @@ export default function EducationForm(props) {
           //value={formData.schoolName}
           onChange={handleInputData}
         />
-        {errors.schoolName && <span className='error'>{errors.schoolName}</span>}
+        {errors.schoolName && (
+          <span className='error'>{errors.schoolName}</span>
+        )}
       </div>
       <div className='degree'>
         <label htmlFor='degree'>Degree/Field of Study</label>

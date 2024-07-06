@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useState, useEffect  } from 'react';
 import '../styles/GenereBox.css';
 import im1 from '../assets/arrow.png';
-
+import im2 from '../assets/trash.png';
 export default function GenreBox(props) {
   const [showForm, setShowForm] = useState(false);
   const [showBlock, setShowBlock] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [renderCard, setRenderCard] = useState([]);
+  useEffect(() => {
+    renderCards(); // Initial render
+  }, [props.sharedData, props.info]);
 
   const toggleHidden = () => {
     setIsHidden(!isHidden);
@@ -18,23 +20,40 @@ export default function GenreBox(props) {
     setShowForm(!showForm);
   };
 
+  const handleTrashClick = (id) => {
+    props.deleteItem(props.info, id);
+  };
+
   const renderCards = () => {
     const dataToShow = props.sharedData[props.info];
     console.log(dataToShow);
     if (dataToShow && dataToShow.length > 0) {
       const newRenderCard = dataToShow.map((item) => {
+        // const key = uuidv4();
         if (!item.schoolName && !item.name) {
           return (
-            <div key={uuidv4()}>
-              <p>{item.companyName}</p>
-              <img src={im1} alt='Company' />
+            <div className='card' key={item.id}>
+              <div>{item.companyName}</div>
+              <img
+                src={im2}
+                alt='Company'
+                className='trash'
+                onClick={() => handleTrashClick(item.id)}
+              />
             </div>
           );
         } else if (item.schoolName) {
           return (
-            <div key={uuidv4()}>
-              <p>{item.schoolName}</p>
-              <img src={im1} alt='School' />
+            <div className='card' key={item.id}>
+              <div>{item.schoolName}</div>
+              <img
+                src={im2}
+                alt='School'
+                className='trash'
+                onClick={() => {
+                  handleTrashClick(item.id);
+                }}
+              />
               {console.log(item.schoolName)}
             </div>
           );
@@ -78,8 +97,6 @@ export default function GenreBox(props) {
     props.setSharedData(formData);
     setShowForm(false);
     toggleHidden();
-    // we need to update the .cards ----------------------------------------------------------------
-    handelBlockClick();   
   };
 
   let formContent = null;
@@ -95,7 +112,6 @@ export default function GenreBox(props) {
   }
 
   let blockContent = null;
-
   if (showBlock) {
     blockContent = (
       <>
@@ -109,6 +125,7 @@ export default function GenreBox(props) {
       </>
     );
   }
+
   return (
     <div className='box' key={props.index}>
       <div className='subBox'>
@@ -126,7 +143,7 @@ export default function GenreBox(props) {
         </div>
       </div>
 
-      <div className={`blockContent ${isVisible ? 'visible' : ''}`}>
+      <div className={`blockContent ${isVisible ? 'visible' : 'hidden'}`}>
         {blockContent}
         <div className={`cards ${isVisible ? 'visible' : 'hidden'}`}>
           {renderCard && <>{renderCard}</>}

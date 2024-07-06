@@ -7,6 +7,13 @@ import EducationForm from './components/EducationForm';
 import ExperianceForm from './components/ExperianceForm';
 
 export default function DetailSection(props) {
+
+  const deleteItem = (info, id) => {
+    props.setSharedData((prevData) => ({
+      ...prevData,
+      [info]: prevData[info].filter((item) => item.id !== id),
+    }));
+  };
   return (
     <div className='detail'>
       <GenreBox
@@ -25,6 +32,7 @@ export default function DetailSection(props) {
         index='2'
         formContent={<EducationForm sharedData={props.sharedData} />}
         setSharedData={props.setSharedData}
+        deleteItem={deleteItem}
         sharedData={props.sharedData}
       />
       <GenreBox
@@ -34,6 +42,7 @@ export default function DetailSection(props) {
         index='3'
         formContent={<ExperianceForm sharedData={props.sharedData} />}
         setSharedData={props.setSharedData}
+        deleteItem={deleteItem}
         // athi bech nab3thou bada les donner el genere box pour les affiche comme des petit box
         sharedData={props.sharedData} 
       />

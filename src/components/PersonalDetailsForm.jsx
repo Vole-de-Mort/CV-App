@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import '../styles/PersonalDetailsForm.css';
 
 export default function PersonalDetailsForm(props) {
   const [formData, setFormData] = useState(props.sharedData.personalData[0]);
@@ -25,7 +24,7 @@ export default function PersonalDetailsForm(props) {
 
   return (
     <>
-      <div className='fullName'>
+      <div className='fullNameForm'>
         <label htmlFor='name'>Full name</label>
         <input
           type='text'
@@ -35,7 +34,7 @@ export default function PersonalDetailsForm(props) {
           onChange={handleInputData}
         />
       </div>
-      <div className='email'>
+      <div className='emailForm'>
         <label htmlFor='email'>E-mail</label>
         <input
           type='email'
@@ -45,12 +44,22 @@ export default function PersonalDetailsForm(props) {
           onChange={handleInputData}
         />
       </div>
-      <div className='phoneNumber'>
+      <div className='phoneNumberForm'>
         <label htmlFor='phoneNumber'>Phone number</label>
         <input
           type='text'
           placeholder='33 444 555'
           id='phoneNumber'
+          //value={formData.phoneNumber}
+          onChange={handleInputData}
+        />
+      </div>
+      <div className='adresseForm'>
+        <label htmlFor='adresse'>Adresse</label>
+        <input
+          type='text'
+          placeholder='05 Rue de ... -London '
+          id='adresse'
           //value={formData.phoneNumber}
           onChange={handleInputData}
         />

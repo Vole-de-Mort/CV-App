@@ -26,6 +26,8 @@
   gap: 1em;
 }
 
-.main {
-  border: 1px solid blue;
+.main{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }

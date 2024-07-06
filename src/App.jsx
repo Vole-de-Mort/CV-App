@@ -15,6 +15,7 @@ function App() {
         name: 'Ahmed miled',
         email: 'ml967799@gmail.com',
         phoneNumber: '11 222 333',
+        adresse: '05 Rue de la republique -Sayada',
       },
     ], // the education data is a list that containes the education achivment's
     educationData: [

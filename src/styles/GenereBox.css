@@ -113,3 +113,6 @@ button[type='button']:hover{
   font-size: 0.8em;
   margin-top: 0.5em;
 }
+.card{
+  border: 1px solid red;
+}

@@ -10,11 +10,11 @@ function App() {
   // prototype for the predined data as an object
   const initialData = {
     // the personal data must only contain one element
-    personalData: {
+    personalData: [{
       name: 'Ahmed miled',
       email: 'ml967799@gmail.com',
       phoneNumber: '11 222 333',
-    }, // the education data is a list that containes the education achivment's
+    }], // the education data is a list that containes the education achivment's
     educationData : [
       { // it could need an id not sure yet !
         schoolName : 'insat',

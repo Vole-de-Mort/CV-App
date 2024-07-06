@@ -4,9 +4,9 @@ export default function MainSection(props) {
       {console.log(props)}
       <div className='personalInfoBox'>
         <p>personal info</p>
-        {props.sharedData.personalData.name} <br />
-        {props.sharedData.personalData.email} <br />
-        {props.sharedData.personalData.phoneNumber}
+        {props.sharedData.personalData[0].name} <br />
+        {props.sharedData.personalData[0].email} <br />
+        {props.sharedData.personalData[0].phoneNumber}
       </div>
       <div className='educationInfo'>
         <p>edu info </p>

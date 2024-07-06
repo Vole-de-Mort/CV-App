@@ -12,26 +12,30 @@ export default function DetailSection(props) {
       <GenreBox
         text='Personal details'
         srcIcone={im1}
-        info='Personal details'
+        info='personalData'
         index='1'
         formContent={<PersonalDetailsForm sharedData={props.sharedData} />}
         setSharedData={props.setSharedData}
+        sharedData={props.sharedData}
       />
       <GenreBox
         text='Education'
         srcIcone={im2}
-        info='education'
+        info='educationData'
         index='2'
         formContent={<EducationForm sharedData={props.sharedData} />}
         setSharedData={props.setSharedData}
+        sharedData={props.sharedData}
       />
       <GenreBox
         text='Experiance'
         srcIcone={im3}
-        info='experiance'
+        info='experianceData'
         index='3'
         formContent={<ExperianceForm sharedData={props.sharedData} />}
         setSharedData={props.setSharedData}
+        // athi bech nab3thou bada les donner el genere box pour les affiche comme des petit box
+        sharedData={props.sharedData} 
       />
     </div>
   );

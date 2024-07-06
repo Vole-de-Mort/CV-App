@@ -37,7 +37,6 @@ export default function EducationForm(props) {
     // Update the initialData structure in the parent component (App.js)
     props.onSave((prevSharedData) => ({
       ...prevSharedData,
-      //educationData: formData,
       educationData: [ ...prevSharedData.educationData, formData]
     }));
   };

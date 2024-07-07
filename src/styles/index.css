@@ -56,9 +56,6 @@
 
 @media (min-width: 37.5em) and (max-width: 61.85em) {
   /* Styles for tablets */
-  body{
-    background-color: red;
-  }
   p{
     font-size: 1.15em;
   }

@@ -11,9 +11,9 @@ function App() {
     personalData: [
       {
         name: 'Ahmed miled',
-        email: 'ml967799@gmail.com',
-        phoneNumber: '11 222 333',
-        adresse: '05 Rue de la republique -Sayada',
+        email: 'this.is.not.real@gmail.com',
+        phoneNumber: '+216 99 999 999',
+        adresse: '123 Random Road',
       },
     ], // the education data is a list that containes the education achivment's
     educationData: [
@@ -32,7 +32,7 @@ function App() {
         id: uuidv4(),
       },
       {
-        schoolName: 'insat',
+        schoolName: 'ESSTHS',
         degree: 'Bachelor of Science in Computer Science',
         startDate: '11-11-2000',
         endDate: '22-22-2003',

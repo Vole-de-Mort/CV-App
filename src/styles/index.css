@@ -17,3 +17,69 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@media (max-width: 37.5em){
+  /* Styles for Phones */
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  p{
+    font-size: 1em;
+  }
+  .detail{
+    padding-left: .5em;
+  }
+  .fullName{
+    font-size: 1.7em;
+  }
+  .personalData{
+    flex-direction: column;
+    align-items: center;
+    font-size: 1em;
+  }
+  .main{
+    padding-right: 0em;
+  }
+  .educationInfo, experianceInfo {
+    padding: .5em 1em;
+  }
+  .bold{
+    font-size: 1.05em;
+    font-weight: 600;
+  }
+  .titre{
+    font-size: .9em;
+  }
+}
+
+
+@media (min-width: 37.5em) and (max-width: 61.85em) {
+  /* Styles for tablets */
+  body{
+    background-color: red;
+  }
+  p{
+    font-size: 1.15em;
+  }
+  .subBox{
+    padding: .6em;
+  }
+  .container{
+    gap: .5em;
+  }
+  #btn1, #btn2 {
+    font-size: .85em;
+  }
+  .card{
+    font-size: 1.25em;
+  }
+  .personalData {
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.15em;
+  }
+  .fullName{
+    font-size: 2em;
+  }
+}

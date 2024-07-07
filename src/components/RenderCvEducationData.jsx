@@ -13,7 +13,7 @@ export default function RenderCvEducationData({ education }) {
             </div>
           </div>
           <div key={uuidv4()} className='sub-show-card'>
-            {ecole.degree}
+            <li>{ecole.degree}</li>
           </div>
 
           <div className='line-break'></div>

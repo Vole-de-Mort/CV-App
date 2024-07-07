@@ -34,7 +34,7 @@ export default function MainSection(props) {
       </div>
       <div className='educationAndExperiance'>
         <div className='educationInfo'>
-          <h2>Education</h2>
+          <div className="titre"><h2>Education</h2></div>
           <div className='line-break'></div>
           {/*map throw educationData */}
           <RenderCvEducationData
@@ -42,7 +42,7 @@ export default function MainSection(props) {
           />
         </div>
         <div className='experianceInfo'>
-          <h2>Experiance</h2>
+          <div className="titre"><h2>Experiance</h2></div>
           <div className='line-break'></div>
           {/* map throw experianceData */}
           <RenderCvExperianceData

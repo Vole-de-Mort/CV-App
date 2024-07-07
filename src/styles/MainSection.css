@@ -23,6 +23,10 @@
   width: 100%;
   border: 1px solid black;
 }
+.titre{
+  background-color: #d3d3d3;
+  text-align: center;
+}
 .email, .phoneNumber, .adresse{
   display: flex;
   align-items: center;
